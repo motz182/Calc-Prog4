@@ -1,53 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="Pt-br" >
 <head>
   <meta charset="UTF-8">
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <title>Calc</title>
   
-  
   <link rel='stylesheet prefetch' href='https://unpkg.com/onsenui/css/onsenui.css'>
-<link rel='stylesheet prefetch' href='https://unpkg.com/onsenui/css/onsen-css-components.css'>
+  <link rel='stylesheet prefetch' href='https://unpkg.com/onsenui/css/onsen-css-components.css'>
 
-  
   
 </head>
 
 <body>
   <ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
 
-<template id="page1.html">
-  <ons-page id="page1">
-    <ons-toolbar>
-      <div class="center">app das notas</div>
-      <img class="post-image" src="img/logo.png">
-    </ons-toolbar>
+  <template id="page1.html">
+    <ons-page id="page1">
+      <ons-toolbar>
+        <div class="center">app das notas</div>
+        <img class="post-image" src="img/logo.png">
+      </ons-toolbar>
 
-		<ons-list modifier="insert">
-    <ons-list-header>Lista de disciplinas inseridas</ons-list-header>
-    <ons-list-item modifier="longdivider">Exemplo de disciplina</ons-list-item>
-	
-  </ons-list>
+      <ons-list modifier="insert">
+        <ons-list-header>Lista de disciplinas inseridas</ons-list-header>
+        <ons-list-item modifier="longdivider">Exemplo de disciplina</ons-list-item>
+        
+      </ons-list>
 
-    <div style="text-align: center">
-			<ons-button >Gerenciar disciplinas</ons-button><br>
-			<br>
-			<ons-button id="sobre" tappable onclick="showDialog('dialog-1')">Sobre</ons-button>
+      <div style="text-align: center">
+       <ons-button >Gerenciar disciplinas</ons-button><br>
+       <br>
+       <ons-button id="sobre" tappable onclick="showDialog('dialog-1')">Sobre</ons-button>
+     </div>
+     <ons-dialog id="dialog-1">
+      <div style="text-align: center; padding: 10px;">
+       <p>
+         Este software foi desenvolvido com intenção literária e de forma auto didáta por Moisés Alberto Reichert, para contato motz182@gmail.com .
+       </p>
+       <p>
+        <ons-button onclick="hideDialog('dialog-1')">Close</ons-button>
+      </p>
     </div>
-		<ons-dialog id="dialog-1">
-  <div style="text-align: center; padding: 10px;">
- <p>
-			Este software foi desenvolvido com intenção literária e de forma auto didáta por Moisés Alberto Reichert, para contato motz182@gmail.com .
-		</p>
-        <p>
-          <ons-button onclick="hideDialog('dialog-1')">Close</ons-button>
-        </p>
-  </div>
-</ons-dialog>
+  </ons-dialog>
 
-    <ons-fab position="bottom right" onclick="createDB()">
-      <ons-icon id="push-button" icon="md-plus"></ons-icon>
-    </ons-fab>
-  </ons-page>
+  <ons-fab position="bottom right" ">
+    <ons-icon id="push-button" icon="md-plus"></ons-icon>
+  </ons-fab>
+</ons-page>
 </template>
 
 <template id="page2.html">
@@ -56,33 +55,28 @@
       <div class="left"><ons-back-button>Voltar</ons-back-button></div>
       <div class="center"></div>
     </ons-toolbar>
-      <p>
-        Disciplina : 
-        <ons-input id="disciplina" modifier="underbar" placeholder="Nome da Disciplina" float></ons-input>
-      </p>
-      <p>
-         Avaliação 1: 
-        <ons-input id="av1" modifier="underbar" placeholder="Peso 1" float></ons-input>
-       </p>
-       <p>
-          Avaliação 2: 
-          <ons-input id="av2" modifier="underbar" placeholder="Peso 2" float></ons-input>
-       </p>
-       <p>
-          Avaliação 3: 
-          <ons-input id="av3" modifier="underbar" placeholder="Peso 3" float></ons-input>
-       </p>
-     <div style="text-align: center">
-       <ons-button onclick="executeQuery()">Adicionar</ons-button>
-<!--        <ons-button >Excluir</ons-button> -->
-     </div>
-  </ons-page>
+    <p>
+      Disciplina : 
+      <ons-input id="nome_disc" modifier="underbar" placeholder="Nome da Disciplina" float></ons-input>
+    </p>
+    <p>
+     Numero de avaliaçoes: 
+     <ons-input id="n_av" modifier="underbar" placeholder="numero de avs" float></ons-input>
+    </p>
+
+   <div style="text-align: center">
+     <ons-button id="btn-salvar">Adicionar</ons-button>
+     <!--        <ons-button >Excluir</ons-button> -->
+   </div>
+
+ </ons-page>
 </template>
-  <script src='https://unpkg.com/onsenui/js/onsenui.js'></script>
+<script src='https://unpkg.com/onsenui/js/onsenui.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
-
-    <script  src="js/index.js"></script>
+<script  src="js/index.js"></script>
+<script  src="js/banco.js"></script>  
 
 </body>
 </html>

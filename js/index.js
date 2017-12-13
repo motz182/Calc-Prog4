@@ -9,6 +9,7 @@ document.addEventListener('init', function(event) {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
   }
 });
+
 var showDialog = function (id) {
   document
     .getElementById(id)
@@ -19,26 +20,3 @@ var hideDialog = function (id) {
     .getElementById(id)
     .hide();
 };
-function successCB() {
-var db = window.openDatabase(calc_nota, 1.0, CNotas, 1000000);
-        db.transaction(queryDB, errorCB);
-    }
-function createDB(){
-var db = window.openDatabase(calc_nota, 1.0, CNotas, 1000000);
-	db.transaction(executeQuery, errorCB, successCB);
-
-    }
-document.addEventListener("deviceready", onDeviceReady, false);
-
-    function onDeviceReady() {
-
-        window.alert("Create a database and display the content");
-    }
-
-function executeQuery(disc) {
-        // disc.executeSql('DROP TABLE IF EXISTS Disc');
-        disc.executeSql('CREATE TABLE IF NOT EXISTS Disc (id unique, Nome_disc)');
-        disc.executeSql('INSERT INTO Disc (id, Nome_disc) VALUES (1, "mat")');
-
-
-    }
